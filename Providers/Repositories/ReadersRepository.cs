@@ -12,15 +12,6 @@ namespace DiReadersApp.Providers.Repositories
         IEnumerable<Reader> Get(Func<Reader, bool> predicate);
     }
 
-    public class PlainReadersRepository : IReadersRepository
-    {
-        public IEnumerable<Reader> Get(Func<Reader, bool> predicate)
-        {
-            var context = new FakeReadersContext();
-            return context.Readers.Where(predicate);
-        }
-    }
-
     public class ReadersRepository : IReadersRepository
     {
         IReadersContext _context;
